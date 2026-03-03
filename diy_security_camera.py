@@ -2,7 +2,9 @@ import cv2
 webcam = cv2.VideoCapture(0)
 while True:
     _,im1 = webcam.read()
-    cv2.imshow("Camera", im1)
+    _,im2 = webcam.read()
+    diff = cv2.absdiff(im1,im2)
+    cv2.imshow("Security Camera", im1)
     if cv2.waitKey(10) == 27:
         break
 webcam.release()
